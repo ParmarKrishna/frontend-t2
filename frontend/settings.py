@@ -77,8 +77,15 @@ WSGI_APPLICATION = 'frontend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'201901155_db',
+        'OPTIONS' : {
+                'options': '-c search_path="S8_T2",public'
+            },
+        'USER':'postgres',
+        'PASSWORD':'admin',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
