@@ -6,8 +6,13 @@ class ApplyLeave(models.Model):
     leave_date = models.DateField(blank=True, null=True)
     leave_status = models.CharField(max_length=100, blank=True, null=True)
 
+    def returnAll(self):
+        return [self.leave_id,self.employee,self.leave_reason,self.leave_date,self.leave_status]
+    def returnHeading(self):
+        return ['Leave ID','Employee ID','Leave Reason','Leave Date','Leave Status']
+
     class Meta:
-        managed = False
+        #managed = False
         db_table = 'apply_leave'
 
 class BranchDetails(models.Model):
@@ -17,6 +22,9 @@ class BranchDetails(models.Model):
     branch = models.OneToOneField('BranchManager', models.DO_NOTHING, primary_key=True)
     head_manager = models.ForeignKey('HeadManager', models.DO_NOTHING)
     branch_name = models.CharField(max_length=500, blank=True, null=True)
+
+    def returnAll(self):
+        return [self.branch.name,self.branch_name,self.branch_address,self.total_payout,self.total_number_of_employee,]
 
     class Meta:
         managed = False
@@ -83,7 +91,6 @@ class EmployeeLeaveManagement(models.Model):
         managed = False
         db_table = 'employee_leave_management'
 
-
 class GeneralService(models.Model):
     general_service_id = models.IntegerField(blank=True, null=True)
     expenses = models.IntegerField(blank=True, null=True)
@@ -110,7 +117,6 @@ class HeadManager(models.Model):
     class Meta:
         managed = False
         db_table = 'head_manager'
-
 
 class Login(models.Model):
     user_id = models.IntegerField(primary_key=True)
@@ -151,8 +157,8 @@ class ProductDetails(models.Model):
     cost = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'product_details'
+        managed=False
 
 
 class Resignation(models.Model):

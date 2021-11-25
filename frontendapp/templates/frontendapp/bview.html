@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Mall Salary Management System</title>
+    {% endif %}
+</head>
+<body>
+    <div class="card w-75">
+        <div class="card-body">
+          <h1 class="card-title">{{ info.name }}</h1>
+          <h2 class="card-text">Branch ID :{{ info.branch_id }}</h2>
+          <h5 class="card-text">Branch Manage ID : {{ info.branch_manager_id }}</h5>
+          <h6 class="card-text">{{ info.gender }}</h6>
+          <p class="card-text">Age : {{ info.age}}</p>
+          <p class="card-text">Address : {{ info.address }}</p>
+          <p class="card-text">Contact Number : {{ info.contact_number}}</p>
+          <p class="card-text">Email ID : {{ info.email_id}}</p>
+        </div>
+      </div>
+      <hr>
+      <h3> Your Employee Leave Management</h3>
+      {% if elm %}
+      {% for employee in elm %}
+      <div class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title">Employee {{ employee.employee_id }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Leave ID : {{ employee.leave_id }}</h6>
+          <p class="card-text">Leave Reason : {{ employee.leave_reason }}</p>
+          <a href="#" class="card-link">Leave Status: {{employee.leave_status}}</a>
+          <a href="#" class="card-link">Leave Date : {{employee.leave_date}}</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="alert alert-primary" role="alert">
+       No Employee on Leave
+      </div>
+      {% endif %}
+      <hr>
+      <h3> Your Past Employee</h3>
+      {% if pus %}
+      <table class="table mb-2">
+        <thead>
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Job Type</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Joining Date</th>
+            <th scope="col">Working Hours</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Age</th>
+            <th scope="col">Date of Birht</th>
+            <th scope="col">Total Leaves</th>
+            <th scope="col">Resign Date</th>
+            <th scope="col">Salary</th>
+          </tr>
+        </thead>
+        {% for info in pus %}
+        <tbody>
+            <tr>
+                <td>{{ info.employee_id }}</td>
+              <td>{{ info.name }}</td>
+              <td>{{ info.job_type }}</td>
+              <td>{{ info.gender }}</td>
+              <td>{{ info.joining_date }}</td>
+              <td>{{ info.working_hours }}</td>
+              <td>{{ info.address }}</td>
+              <td>{{ info.contact_number }}</td>
+              <td>{{ info.age }}</td>
+              <td>{{ info.date_of_birth }}</td>
+              <td>{{ info.total_leaves }}</td>
+              <td>{{ info.leaving_date }}</td>
+              <td>{{ info.salary }}</td>
+            </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+      {% else %}
+      <div class="alert alert-primary" role="alert">
+       No Past Employee Found For this branch.
+      </div>
+      {% endif %}
+      <h3> Your Employee Salary Calculations</h3>
+      {% if cal %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Salary ID</th>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Allowance</th>
+            <th scope="col">Deduction</th>
+            <th scope="col">Total Caluclated Salary</th>
+            <th scope="col">Working Hours</th>
+            <th scope="col">Total Leaves</th>
+          </tr>
+        </thead>
+        {% for info in cal %}
+        <tbody>
+            <tr>
+                <td>{{ info.salary_id }}</td>
+              <td>{{ info.employee.employee_id }}</td>
+              <td>{{ info.employee.name }}</td>
+              <td>{{ info.allowance }}</td>
+              <td>{{ info.deduction }}</td>
+              <td>{{ info.total_calculated_salary }}</td>
+              <td>{{ info.working_hours }}</td>
+              <td>{{ info.total_leaves }}</td>
+            </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+      {% else %}
+      <div class="alert alert-primary" role="alert">
+       No Calculations to show..
+      </div>
+      {% endif %}
+      <hr>
+      <!--
+      <h3> Your General Services</h3>
+      {% for service in gs %}
+      <div class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title">General Service {{ gs.type }}</h5>
+          <h5 class="card-title">ID {{ gs.general_service_id }}</h5>
+          <p class="card-subtitle mb-2 text-muted">Expenses : {{ gs.expenses }}</p>
+          <p class="card-subtitle mb-2 text-muted">Income : {{ gs.income }}</p>
+        </div>
+      </div>
+      {% endfor %}-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
