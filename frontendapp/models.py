@@ -92,6 +92,7 @@ class EmployeeLeaveManagement(models.Model):
         db_table = 'employee_leave_management'
 
 class GeneralService(models.Model):
+    PK=models.IntegerField(primary_key=True)
     general_service_id = models.IntegerField(blank=True, null=True)
     expenses = models.IntegerField(blank=True, null=True)
     type = models.CharField(max_length=500, blank=True, null=True)
@@ -155,6 +156,7 @@ class ProductDetails(models.Model):
     expiry_date = models.DateField(blank=True, null=True)
     branch = models.ForeignKey(BranchManager, models.DO_NOTHING, blank=True, null=True)
     cost = models.IntegerField(blank=True, null=True)
+    PK=models.IntegerField(primary_key=True)
 
     class Meta:
         db_table = 'product_details'

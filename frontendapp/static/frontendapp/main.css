@@ -1,0 +1,23 @@
+body{
+    background-color:#c187d3;
+}
+.form{
+    place-self: center;
+}
+.form-group{
+    width: 35%;
+}
+select{
+width: 35%;
+}
+.login{
+    margin-left: 35%;
+}
+.login-h1{
+    margin-left: 30%;
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+.card{
+    background-color: #c187d3;
+}

@@ -1,20 +1,10 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>Mall Salary Management System</title>
-    {% endif %}
-</head>
-<body>
+{% extends './indexbase.html' %}
+{% block content %}
     <div class="card w-75">
         <div class="card-body">
           <h1 class="card-title">{{ info.name }}</h1>
           <h2 class="card-text">Branch ID :{{ info.branch_id }}</h2>
+          <h4 class="card-text ">{{ bad.branch_address }}</h4>
           <h5 class="card-text">Branch Manage ID : {{ info.branch_manager_id }}</h5>
           <h6 class="card-text">{{ info.gender }}</h6>
           <p class="card-text">Age : {{ info.age}}</p>
@@ -23,6 +13,7 @@
           <p class="card-text">Email ID : {{ info.email_id}}</p>
         </div>
       </div>
+      <hr>
       <hr>
       <h3> Your Employee Leave Management</h3>
       {% if elm %}
@@ -124,20 +115,38 @@
       </div>
       {% endif %}
       <hr>
-      <!--
-      <h3> Your General Services</h3>
+      <h3>Products In Your Branch</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Quantity ID</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Cost</th>
+          </tr>
+        </thead>
+        {% for info in pd %}
+        <tbody>
+            <tr>
+                <td>{{ info.product_id }}</td>
+              <td>{{ info.quantity }}</td>
+              <td>{{ info.expiry_date }}</td>
+              <td>{{ info.cost }}</td>
+            </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+    <h3> Your General Services</h3>
+    <div class="card-group">
       {% for service in gs %}
-      <div class="card" style="width: 50rem;">
+      <div class="card" style="width: 25rem;">
         <div class="card-body">
-          <h5 class="card-title">General Service {{ gs.type }}</h5>
-          <h5 class="card-title">ID {{ gs.general_service_id }}</h5>
-          <p class="card-subtitle mb-2 text-muted">Expenses : {{ gs.expenses }}</p>
-          <p class="card-subtitle mb-2 text-muted">Income : {{ gs.income }}</p>
+          <h5 class="card-title">{{ service.type }}</h5>
+          <h5 class="card-title">ID {{ service.general_service_id }}</h5>
+          <p class="card-subtitle mb-2 text-muted">Expenses : {{ service.expenses }}</p>
+          <p class="card-subtitle mb-2 text-muted">Income : {{ service.income }}</p>
         </div>
-      </div>
-      {% endfor %}-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
-</html>
+      </div><br>
+      {% endfor %}
+    </div>
+{% endblock %}

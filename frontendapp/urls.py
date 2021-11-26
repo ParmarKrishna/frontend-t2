@@ -6,5 +6,6 @@ urlpatterns = [
     path('base.html',views.home),
     path('apply',views.apply,name="Apply-Leave"),
     path('eview.html',views.eview,name="Employee-View"),
-    path('resign.html',views.resign,name="Resign")
+    path('resign.html',views.resign,name="Resign"),
+    path('add.html',views.add,name="Add-Employee")
 ]

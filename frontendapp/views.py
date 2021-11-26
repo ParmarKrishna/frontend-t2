@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import ApplyLeave, BranchDetails,Calculation, HeadManager,Login,Employee,BranchManager,PastUserRecords,EmployeeLeaveManagement,GeneralService, Resignation
+from .models import ApplyLeave, BranchDetails,Calculation, HeadManager,Login,Employee,BranchManager,PastUserRecords,EmployeeLeaveManagement,GeneralService, ProductDetails, Resignation
 from django.db import connection
+import random
 def home(request):
     if request.method=="POST":
         print(request.POST)
@@ -11,8 +12,10 @@ def home(request):
                 mainD.update({x:y})
         userid=Login.objects.filter(user_id=mainD['userid']).first()
         if userid:
+            print('Ok')
             if userid.password==mainD['password']:
-                if userid.role==mainD['role']:
+                print('Ok')
+                if userid.role==mainD['role'].lower():
                     print("OK")
                     if mainD['role'].lower() == 'employee':
                         emp=Employee.objects.filter(employee_id=mainD['userid']).first()
@@ -26,15 +29,21 @@ def home(request):
                     elif mainD['role'].lower()=='branch_manager':
                         bm=BranchManager.objects.filter(branch_manager_id=mainD['userid']).first()
                         elm=EmployeeLeaveManagement.objects.filter(branch_id=bm.branch_id)
-                        #gs=GeneralService.objects.filter(branch_id=bm.branch_id)
+                        gs=GeneralService.objects.filter(branch_id=bm.branch_id)
+                        pd=ProductDetails.objects.filter(branch_id=bm.branch_id)
                         pus=PastUserRecords.objects.filter(branch_id=bm.branch_id)
                         cals=Calculation.objects.filter(branch_id=bm.branch_id)
+                        bad=BranchDetails.objects.filter(branch_id=bm.branch_id)
+                        print(bad)
                         context={
                             'info':bm,
                             'title':'Branch Manager',
                             'elm':elm,
                             'pus':pus,
-                            'cal':cals
+                            'cal':cals,
+                            'gs':gs,
+                            'pd':pd,
+                            'bad':bad
                         }
                         return render(request,'frontendapp/bview.html',context)
                     elif mainD['role'].lower()=='head_manager':
@@ -42,7 +51,8 @@ def home(request):
                         bd=BranchDetails.objects.all()
                         context={
                             'info':hm,
-                            'bd':bd
+                            'bd':bd,
+                            'title':'Head Manager'
                         }
                         return render(request,'frontendapp/hmview.html',context)
 
@@ -92,5 +102,29 @@ def resign(request):
         for x,y in req.items():
             if x!="csrfmiddlewaretoken":
                 mainD.update({x:y})
-        Resignation(employee=Employee.objects.get(employee_id=mainD['empid']),resign_reason=mainD['resign_reason'],resign_date=mainD['resign_reason']).save()
+        Resignation(employee=Employee.objects.get(employee_id=mainD['empid']),resign_reason=mainD['resign_reason'],resign_date=mainD['resign_date']).save()
     return render(request,'frontendapp/resign.html')
+
+def add(request):
+    if request.method == "POST":
+        employee_id = request.POST.get('employee_id')
+        name = request.POST.get('name')
+        joining_date = request.POST.get('joining_date')
+        address = request.POST.get('address')
+        job_type = request.POST.get('job_type')
+        contact_number = request.POST.get('contact_number')
+        age = request.POST.get('age')
+        date_of_birth = request.POST.get('date_of_birth')
+        gender = request.POST.get('gender')
+        password=request.POST.get('password')
+        Login(user_id=employee_id,password=password,role='employee').save()
+        working_hours=random.randint(6,8)
+        if job_type=="Cashier":
+            salary=10000
+        else:
+            salary=12000
+        print(request.POST,working_hours,salary)
+        employee = Employee(employee_id=employee_id,name=name,joining_date=joining_date,working_hours=working_hours,address=address,job_type=job_type,contact_number=contact_number,age=age,date_of_birth=date_of_birth,salary=salary,total_leaves=0,gender=gender)
+        employee.save()
+
+    return render(request,'frontendapp/add.html')
