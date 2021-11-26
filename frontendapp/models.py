@@ -120,8 +120,8 @@ class HeadManager(models.Model):
 
 class Login(models.Model):
     user_id = models.IntegerField(primary_key=True)
-    password = models.CharField(db_column='PASSWORD', max_length=30)  # Field name made lowercase.
-    role = models.CharField(db_column='ROLE', max_length=300)  # Field name made lowercase.
+    password = models.CharField(max_length=30) 
+    role = models.CharField(max_length=300)  # Field name made lowercase.
 
     class Meta:
         managed = False

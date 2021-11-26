@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+import frontendapp
 from .models import ApplyLeave, BranchDetails,Calculation, HeadManager,Login,Employee,BranchManager,PastUserRecords,EmployeeLeaveManagement,GeneralService, ProductDetails, Resignation
 from django.db import connection
 import random
@@ -126,3 +128,10 @@ def add(request):
         employee = Employee(employee_id=employee_id,name=name,joining_date=joining_date,working_hours=working_hours,address=address,job_type=job_type,contact_number=contact_number,age=age,date_of_birth=date_of_birth,salary=salary,total_leaves=0,gender=gender)
         employee.save()
     return render(request,'frontendapp/add.html')
+
+def query(request):
+    if request.POST:
+        print(request.POST.get('branch_id'))
+        bm=BranchDetails.objects.get(branch_id=request.POST.get('branch_id'))
+        return render(request,'frontendapp/query.html',{'info':bm})
+    return render(request,'frontendapp/query.html')
