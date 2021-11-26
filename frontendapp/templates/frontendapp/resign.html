@@ -1,7 +1,7 @@
 {% extends './indexbase.html' %}
 {% block content %}
-  <h1>Resignation Form</h1>
-        <form method="POST" action="{%url 'Resign' %}">
+  <h1 class="apply-h1">Resignation Form</h1>
+        <form method="POST" class="apply-form" action="{%url 'Resign' %}">
             {% csrf_token %}
             <div class="form-group">
               <label for="empid">Employee ID</label>

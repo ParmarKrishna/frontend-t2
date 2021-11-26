@@ -6,23 +6,20 @@
     <form method="POST">
         {% csrf_token %}
         <div class="form-group">
-          <label for="userid">User ID</label>
           <input required type="number" class="form-control" name="userid" id="userid" placeholder="User ID">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
           <input required type="password" class="form-control" name="password" id="password" placeholder="Password">
         </div> 
         <div class="form-group">
-            <label for="role">Role</label><br>
             <select name="role">
-              <option value="Employee" selected>Employee</option>
+              <option value="" disabled selected>Select your role</option>
+              <option value="Employee">Employee</option>
               <option value="branch_manager">Branch Manager</option>
               <option value="head_manager">Head Manager</option>
             </select>
           </div>
-        <button type="submit" class="btn btn-primary">Log in</button><br>
-        <p class="text">New Employee?  <a class="link-info" href="{% url 'Add-Employee' %}">Sign up</a></p>
+        <button type="submit" class="btn btn-primary">Log in</button><p class="text-new">New Employee?  <a class="link-info" href="{% url 'Add-Employee' %}">Sign up</a></p>
       </form>
     </div>
     </div>

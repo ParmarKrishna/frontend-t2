@@ -1,12 +1,13 @@
 {% extends './indexbase.html' %}
 {% block content %}
-  <div>
-    <div class="card w-75">
+<div class="card w-100">
+  <div class="em-profile">
         <div class="card-body">
-          <p class="card-text text-muted">Your Profile</p>
+          <p class="card-text">Your Profile</p>
           <h1 class="card-title">{{ info.name }}</h1>
           <h2 class="card-text">{{ info.employee_id }}</h2>
           <h5 class="card-text">{{ info.job_type }}</h5>
+          <div class="em-details">
           <h6 class="card-text">{{ info.gender }}</h6>
           <p class="card-text">Joining Date : {{ info.joining_date }}</p>
           <p class="card-text">Working Hours : {{ info.working_hours }}</p>
@@ -16,21 +17,19 @@
           <p class="card-text">Date of Birth : {{ info.date_of_birth}}</p>
           <p class="card-text">Total Leaves : {{ info.total_leaves }}</p>
           <button type="button"  disabled class="btn btn-outline-success btn-lg">Salary : {{ info.salary }}</button>
-          <hr>
-          <a href="{% url 'Apply-Leave' %}" class="btn btn-primary">Apply Leave</a>
-          <hr>
-          <a href="{% url 'Resign' %}" class="btn btn-danger">Resign</a>
+        </div>
         </div>
     </div>
-        <br>
-        <h3> Your Leaves</h3>
+  </div>
+  <div class="em-l">
+      <h3> Your Leaves</h3>
       {% if leaves %}
       <div class="card-group">
       {% for employee in leaves %}
       <div class="card" style="width: 25rem;">
         <div class="card-body">
           <h5 class="card-subtitle mb-2">Leave ID : {{ employee.leave_id }}</h5>
-          <p class="card-text text-muted">Leave Reason : {{ employee.leave_reason }}</p>
+          <p class="card-text">Leave Reason : {{ employee.leave_reason }}</p>
           <a href="#" class="card-link">Leave Status: {{employee.leave_status}}</a>
           <a href="#" class="card-link">Leave Date : {{employee.leave_date}}</a>
         </div>
@@ -44,4 +43,8 @@
       {% endif %}
       </div>
     </div>
+  </div>
+  <div class="em-bt">
+    <a href="{% url 'Apply-Leave' %}" class="btn btn-primary bt1">Apply Leave</a>  <a href="{% url 'Resign' %}" class="btn btn-danger bt2">Resign</a>
+  </div>
 {% endblock %}

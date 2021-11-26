@@ -1,7 +1,7 @@
 {% extends './indexbase.html' %}
 {% block content %}
-<h1 class="add=h1" aria-describedby="message">Sign up as Employee</h1>
-<form method="post" action="{% url 'Add-Employee' %}">
+<h1 class="add-h1">Sign up as Employee</h1>
+<form method="post" class="add-form" action="{% url 'Add-Employee' %}">
   {% csrf_token %}
   <div class="form-group">
       <label for="empid">Employee_id</label>
@@ -28,11 +28,11 @@
   </div>
   <div class="form-group">
       <label for="contact_number" class="form-label">Contact Number</label>
-      <input type="number" class="form-control" id="contact_number" name="contact_number">
+      <input type="number" class="form-control" id="contact_number" placeholder="Contact Number" name="contact_number">
   </div>
   <div class="form-group">
       <label for="age" class="form-label">Age</label>
-      <input type="number" class="form-control" id="age" name="age">
+      <input type="number" class="form-control" placeholder="Age" id="age" name="age">
   </div>
   <div class="form-group">
   <label for="dob">Date of Birth</label><br>
@@ -49,7 +49,7 @@
       <label for="password" class="form-label">Create Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
   </div>
-  <button class="btn btn-primary" type="submit">Sign up</button>
-  <a href="{% url 'base' %}" class="btn btn-outline-danger">Go Back</a>
+  <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+  <a href="{% url 'base' %}" class="btn btn-outline-danger btn-block">Go Back</a>
 </form>
 {% endblock %}

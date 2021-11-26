@@ -1,10 +1,11 @@
 {% extends './indexbase.html' %}
 {% block content %}
-    <div class="card w-75">
+    <div class="card w-100">
+      <div class="hm-profile">
         <div class="card-body">
           <h1 class="card-title">{{ info.name }}</h1>
           <h2 class="card-text">Head Branch ID :{{ info.head_branch_id }}</h2>
-          <p class="card-text text-muted">{{ info.head_branch_address }}</p>
+          <p class="card-text">{{ info.head_branch_address }}</p>
           <h5 class="card-text">Head Manager ID : {{ info.head_manager_id }}</h5>
           <h6 class="card-text">{{ info.gender }}</h6>
           <p class="card-text">Age : {{ info.age}}</p>
@@ -13,10 +14,12 @@
           <p class="card-text">Email ID : {{ info.email_id}}</p>
         </div>
       </div>
+    </div>
       <hr>
+    <div class="hm-bd">
     <div class="card">
         <h4>All Branch Details</h4>
-        <table class="table mb-2">
+        <table class="table mb-3">
             <thead>
               <tr>
                 <th scope="col">Branch Name</th>
@@ -39,4 +42,5 @@
       {% endfor %}
             </table>
     </div>
+  </div>
 {% endblock %}
