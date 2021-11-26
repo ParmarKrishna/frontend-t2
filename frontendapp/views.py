@@ -126,5 +126,4 @@ def add(request):
         print(request.POST,working_hours,salary)
         employee = Employee(employee_id=employee_id,name=name,joining_date=joining_date,working_hours=working_hours,address=address,job_type=job_type,contact_number=contact_number,age=age,date_of_birth=date_of_birth,salary=salary,total_leaves=0,gender=gender)
         employee.save()
-
     return render(request,'frontendapp/add.html')
