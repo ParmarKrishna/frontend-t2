@@ -1,7 +1,7 @@
 {% extends './indexbase.html' %}
 {% block content %}
-  <h1>Apply Leave</h1>
-        <form method="POST" action="{%url 'Apply-Leave' %}">
+  <h1 class='apply-h1'>Apply Leave</h1>
+        <form method="POST" action="{%url 'Apply-Leave' %}" class="apply-form">
             {% csrf_token %}
             <div class="form-group">
               <label for="empid">Employee ID</label>

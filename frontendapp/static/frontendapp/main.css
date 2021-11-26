@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body{
     /* background-color:#c187d3; */
     background-image: url(marc-olivier-jodoin-0eLofogafxQ-unsplash.png);
+    background-color:#c496ce;
+    font-family: 'Noto Sans', sans-serif;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+hr{
+    color: black;
 }
 .form{
     place-self: center;
@@ -45,4 +58,229 @@ P{
     background-color: #00000082;
     border-radius: 9px;
     margin-left: -14px;
+    background: none;
+}
+.text-new{
+    font-weight: bold;
+    margin-top: 1%;
+    color:rgb(0, 0, 0);
+}
+.link-info{
+    color: indigo;
+    text-decoration: underline;
+}
+.add-h1{
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 2%;
+    word-spacing: 15;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+.add-form{
+    margin-left: 20%;
+}
+.add-form .form-group{
+    width: 80%;
+    margin-bottom: 1.5%;
+}
+.add-form select{
+    width: 100%;
+}
+#joining_date{
+    width: 100%;
+}
+#date_of_birth{
+    width: 100%;
+}
+.btn-block{
+    margin-bottom: 1.5%;
+    width: 500;
+    margin-left: 20%;
+}
+.apply-h1{
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 2%;
+    word-spacing: 15;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+.apply-form{
+    margin-left: 20%;
+}
+.apply-form .form-group{
+    width: 80%;
+    margin-bottom: 1.5%;
+}
+.text-bm{
+    color: black;
+    font-size: 15px;
+    margin-bottom: 0%;
+}
+.bm-name{
+    font-weight: bold;
+    font-size: 60px;
+}
+.bm-profile{
+    margin-left: 1%;
+}
+.bm-branch{
+    font-size: 40px;  
+    margin-bottom: 1%; 
+}
+.bm-details p,h6{
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+}
+.bm-elm{
+    margin-left:1.8%;
+}
+.bm-elm h3{
+    font-weight: bold;
+    font-size: 30px;
+}
+.bm-elm .alert{
+    width: 50%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.bm-pe{
+    margin-left:1.8%;
+}
+.bm-pe h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.bm-pe th{
+    font-weight: bold;
+    font-size: 20px;
+}
+.bm-pe .alert{
+    width: 50%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.bm-esc{
+    margin-left:1.8%;
+}
+.bm-esc h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.bm-esc th{
+    font-weight: bold;
+    font-size: 20px;
+}
+.bm-esc .alert{
+    width: 50%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.bm-pd{
+    margin-left:1.8%;
+}
+.bm-pd h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.bm-pd th{
+    font-weight: bold;
+    font-size: 20px;
+}
+.bm-pd .alert{
+    width: 50%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.bm-gs{
+    margin-left:1.8%;
+}
+.bm-gs h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.bm-gs p{
+    color: black;
+}
+.bm-gs h5{
+    font-size:25px;
+    font-weight: 500px;
+}
+.hm-profile{
+    margin-left:1%;
+}
+.hm-profile h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.hm-profile h2,p{
+    color:black;
+    font-weight: 200px;
+}
+.hm-bd{
+    margin-left:1.8%;
+}
+.hm-bd h4{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 1%;
+}
+.hm-bd th{
+    font-weight: bold;
+    font-size: 20px;
+}
+.em-profile{
+    margin-left:1%;
+}
+.em-profile h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.em-profile h2{
+    color:black;
+    font-weight: 200px;
+}
+.em-profile h5{
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+.em-details p,h6{
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+}
+.em-l{
+    margin-left: 1.8%;
+    margin-top: 1.1%;
+    margin-bottom: 1%;
+}
+.em-l h3{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 1%;
+}
+.em-l h5{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1%;
+}
+.em-l p{
+    font-size: 15px;
+    margin-bottom: 1%;
+}
+.em-l a{
+    color: black;
+    font-size: 15px;
+    margin-bottom: 1%;
+}
+.em-bt{
+    margin-left: 1.8%;
+}
+.bt1{
+    margin-right: 2%;
 }
