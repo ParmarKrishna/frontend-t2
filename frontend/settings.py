@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'frontend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'201901155_db',
+        'NAME':'201901098_db',
         'OPTIONS' : {
-                'options': '-c search_path="S8_T2",public'
+                'options': '-c search_path=salary_managment,public'
             },
         'USER':'postgres',
         'PASSWORD':'admin',

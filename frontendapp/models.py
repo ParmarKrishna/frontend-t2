@@ -1,30 +1,25 @@
 from django.db import models
+from datetime import date,datetime
 class ApplyLeave(models.Model):
     leave_id = models.IntegerField(primary_key=True)
     employee = models.ForeignKey('Employee', models.DO_NOTHING, blank=True, null=True)
     leave_reason = models.CharField(max_length=500, blank=True, null=True)
     leave_date = models.DateField(blank=True, null=True)
-    leave_status = models.CharField(max_length=100, blank=True, null=True)
-
-    def returnAll(self):
-        return [self.leave_id,self.employee,self.leave_reason,self.leave_date,self.leave_status]
-    def returnHeading(self):
-        return ['Leave ID','Employee ID','Leave Reason','Leave Date','Leave Status']
+    leave_status = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
-        #managed = False
+        managed = False
         db_table = 'apply_leave'
 
+
+
 class BranchDetails(models.Model):
-    branch_address = models.CharField(max_length=50, blank=True, null=True)
+    branch_address = models.CharField(max_length=500, blank=True, null=True)
     total_payout = models.IntegerField(blank=True, null=True)
     total_number_of_employee = models.IntegerField(blank=True, null=True)
     branch = models.OneToOneField('BranchManager', models.DO_NOTHING, primary_key=True)
     head_manager = models.ForeignKey('HeadManager', models.DO_NOTHING)
     branch_name = models.CharField(max_length=500, blank=True, null=True)
-
-    def returnAll(self):
-        return [self.branch.name,self.branch_name,self.branch_address,self.total_payout,self.total_number_of_employee,]
 
     class Meta:
         managed = False
@@ -39,7 +34,7 @@ class BranchManager(models.Model):
     email_id = models.CharField(max_length=300, blank=True, null=True)
     contact_number = models.BigIntegerField(blank=True, null=True)
     gender = models.CharField(max_length=10, blank=True, null=True)
-    address = models.CharField(max_length=500, blank=True, null=True)
+    address = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -59,6 +54,9 @@ class Calculation(models.Model):
     class Meta:
         managed = False
         db_table = 'calculation'
+
+
+
 
 class Employee(models.Model):
     employee_id = models.IntegerField(primary_key=True)
@@ -91,14 +89,14 @@ class EmployeeLeaveManagement(models.Model):
         managed = False
         db_table = 'employee_leave_management'
 
+
 class GeneralService(models.Model):
-    PK=models.IntegerField(primary_key=True)
     general_service_id = models.IntegerField(blank=True, null=True)
     expenses = models.IntegerField(blank=True, null=True)
     type = models.CharField(max_length=500, blank=True, null=True)
     income = models.IntegerField(blank=True, null=True)
     branch = models.ForeignKey(BranchManager, models.DO_NOTHING, blank=True, null=True)
-
+    PK = models.IntegerField(primary_key=True)
     class Meta:
         managed = False
         db_table = 'general_service'
@@ -119,10 +117,11 @@ class HeadManager(models.Model):
         managed = False
         db_table = 'head_manager'
 
+
 class Login(models.Model):
     user_id = models.IntegerField(primary_key=True)
-    password = models.CharField(max_length=30)
-    role = models.CharField(max_length=30)
+    password = models.CharField(db_column='PASSWORD', max_length=30)  # Field name made lowercase.
+    role = models.CharField(db_column='ROLE', max_length=300)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -156,11 +155,10 @@ class ProductDetails(models.Model):
     expiry_date = models.DateField(blank=True, null=True)
     branch = models.ForeignKey(BranchManager, models.DO_NOTHING, blank=True, null=True)
     cost = models.IntegerField(blank=True, null=True)
-    PK=models.IntegerField(primary_key=True)
-
+    PK = models.IntegerField(primary_key=True)
     class Meta:
+        managed = False
         db_table = 'product_details'
-        managed=False
 
 
 class Resignation(models.Model):

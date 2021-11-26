@@ -1,23 +1,48 @@
 body{
-    background-color:#c187d3;
+    /* background-color:#c187d3; */
+    background-image: url(marc-olivier-jodoin-0eLofogafxQ-unsplash.png);
 }
 .form{
     place-self: center;
 }
 .form-group{
     width: 35%;
+    color: #905e62;
 }
-select{
-width: 35%;
+.form-control{
+    background-color: #dbced1;
 }
 .login{
     margin-left: 35%;
 }
 .login-h1{
-    margin-left: 30%;
-    margin-top: 10%;
-    margin-bottom: 3%;
+    margin-left: 28%;
+    margin-top: 8%;
+    margin-bottom: 10%;
+    color: #905e62;
 }
 .card{
     background-color: #c187d3;
+}
+select {
+    width: 51%;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #6c757d;
+    background-color: #dbced1;
+}
+select option { color: black; }
+select option:first-child{
+  color: #6c757d;
+}
+
+P{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #00fff5f2;
+    font-size: 16px;
+    background-color: #00000082;
+    border-radius: 9px;
+    margin-left: -14px;
 }
