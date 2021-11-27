@@ -1,55 +1,55 @@
 {% extends './indexbase.html' %}
 {% block content %}
-<h1 class="add-h1">Sign up as Employee</h1>
-<form method="post" class="add-form" action="{% url 'Add-Employee' %}">
+<h1 class="add-h1 add2" aria-describedby="message">Sign up as Employee</h1>
+<form method="post" action="{% url 'Add-Employee' %}">
   {% csrf_token %}
   <div class="form-group">
-      <label for="empid">Employee_id</label>
+  
       <input type="number" class="form-control" id="employee_id" placeholder="Employee ID" name="employee_id">
   </div>
   <div class="form-group">
-      <label for="name" class="form-label">Name</label>
+  
       <input type="text" class="form-control" id="name" name="name" placeholder="Employee Name">
   </div>
   <div class="form-group">
-      <label for="address" class="form-label">Address</label>
+
       <textarea class="form-control" id="address" placeholder="Address" maxlength="300" name="address" rows="2"></textarea>
   </div>
   <div class="form-group">
-      <label for="job_type" class="form-label">Job Type</label><br>
       <select name="job_type">
-        <option value="Customer Representative" selected>Customer Representative</option>
+        <option value="" disabled selected>Job Type</option>
+        <option value="Customer Representative" >Customer Representative</option>
         <option value="Cashier">Cashier</option>
       </select>
   </div> 
   <div class="form-group">
-    <label for="joining_date">Joining Date:</label><br>
+    <label class="label" for="joining_date">Joining Date:</label><br>
     <input type="datetime" placeholder="YYYY-MM-DD" id="joining_date" name="joining_date">
   </div>
   <div class="form-group">
-      <label for="contact_number" class="form-label">Contact Number</label>
-      <input type="number" class="form-control" id="contact_number" placeholder="Contact Number" name="contact_number">
+      
+      <input type="number" class="form-control" placeholder="Contact Number" id="contact_number" name="contact_number">
   </div>
   <div class="form-group">
-      <label for="age" class="form-label">Age</label>
       <input type="number" class="form-control" placeholder="Age" id="age" name="age">
   </div>
   <div class="form-group">
-  <label for="dob">Date of Birth</label><br>
+  <label class="label" for="dob">Date of Birth</label><br>
   <input type="datetime" placeholder="YYYY-MM-DD" id="date_of_birth" name="date_of_birth">
     </div>
   <div class="form-group">
-      <label for="gender" class="form-label">Gender</label><br>
+      
       <select name="gender">
-        <option value="Male" selected>Male</option>
+        <option value="" disabled selected>Gender</option>
+        <option value="Male" >Male</option>
         <option value="Female">Female</option>
       </select>
   </div>
   <div class="form-group">
-      <label for="password" class="form-label">Create Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+      
+      <input type="password" class="form-control" id="password" name="password" placeholder="Create Password">
   </div>
-  <button class="btn btn-primary btn-block" type="submit">Sign up</button>
-  <a href="{% url 'base' %}" class="btn btn-outline-danger btn-block">Go Back</a>
+  <button class="signup1 btn btn-primary" type="submit">Sign up</button>
+  <a href="{% url 'base' %}" class="goback btn btn-outline-danger">Go Back</a>
 </form>
 {% endblock %}

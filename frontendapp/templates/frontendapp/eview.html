@@ -18,13 +18,18 @@
           <p class="card-text">Total Leaves : {{ info.total_leaves }}</p>
           <button type="button"  disabled class="btn btn-outline-dark btn-lg">Salary : {{ info.salary }}</button>
         </div>
+          <button type="button"  disabled class="salary1 btn btn-outline-success btn-lg">Salary : {{ info.salary }}</button>
+          <hr>
+          <a href="{% url 'Apply-Leave' %}" class="salary1 btn btn-primary">Apply Leave</a>
+          <hr>
+          <a href="{% url 'Resign' %}" class="resign btn btn-danger">Resign</a>
         </div>
     </div>
   </div>
   <div class="em-l">
       <h3> Your Leaves</h3>
       {% if leaves %}
-      <div class="card-group">
+      <div class="card-group card1">
       {% for employee in leaves %}
       <div class="card" style="width: 25rem;">
         <div class="card-body">

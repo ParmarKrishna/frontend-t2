@@ -1,7 +1,7 @@
 {% extends './indexbase.html' %}
 {% block content %}
-  <h1 class='apply-h1'>Apply Leave</h1>
-        <form method="POST" action="{%url 'Apply-Leave' %}" class="apply-form">
+  <h1 class="add-h1">Apply Leave</h1>
+        <form method="POST" action="{%url 'Apply-Leave' %}">
             {% csrf_token %}
             <div class="form-group">
               <label for="empid">Employee ID</label>
@@ -15,7 +15,7 @@
                 <label for="leave_reason">Reason</label>
                 <input type="text" required class="form-control" name="leave_reason" id="leave_reason" placeholder="Leave Reason">
               </div>
-            <button type="submit" class="btn btn-primary">Apply</button>
-            <a class="btn btn-outline-danger" href="base.html">Go Back</a>
+            <button type="submit" class="signup1 btn btn-primary">Apply</button>
+            <a class="goback btn btn-outline-danger" href="base.html">Go Back</a>
           </form>
 {% endblock %}

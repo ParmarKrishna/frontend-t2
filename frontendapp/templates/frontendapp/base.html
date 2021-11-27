@@ -5,10 +5,18 @@
 }
 </style>
 {% endblock %}
+{% comment %} {%block image%}
+<style>
+body{
+    /* background-color:#c187d3; */
+    background-image: url(marc-olivier-jodoin-0eLofogafxQ-unsplash.png);
+}
+</style>
+{% endblock%} {% endcomment %}
 {% block content %}
 <div class="login-body">
 <h1 class="login-h1">Welcome to Mall Salary Management System</h1>
-<div class="login">
+<div class="login_group">
     <form method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -29,7 +37,25 @@
         <div class="btn newEmployee">
             <p class="text">New Employee?  <a class="link-info" href="{% url 'Add-Employee' %}">Sign up</a></p>
         </div>
+          <div class="form-group">
+            <input required type="number" class="form-control" name="userid" id="userid" placeholder="User ID">
+          </div>
+          <div class="form-group">
+            <input required type="password" class="form-control" name="password" id="password" placeholder="Password">
+          </div> 
+          <div class="form-group">
+              <select name="role">
+                <option value="" disabled selected>Select your Role</option>
+                <option value="Employee" >Employee</option>
+                <option value="branch_manager">Branch Manager</option>
+                <option value="head_manager">Head Manager</option>
+              </select>
+            </div>
+          <button type="submit" class="login1 btn btn-primary">Log in</button><br>
+          <div class="btn newEmployee">
+              <p class="text">New Employee?  <a class="link-info" href="{% url 'Add-Employee' %}">Sign up</a></p>
+          </div>
       </form>
     </div>
-    </div>
+</div>
 {% endblock %}
