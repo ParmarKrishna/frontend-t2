@@ -16,18 +16,13 @@
           <p class="card-text">Age : {{ info.age}}</p>
           <p class="card-text">Date of Birth : {{ info.date_of_birth}}</p>
           <p class="card-text">Total Leaves : {{ info.total_leaves }}</p>
-          <button type="button"  disabled class="btn btn-outline-dark btn-lg">Salary : {{ info.salary }}</button>
         </div>
           <button type="button"  disabled class="salary1 btn btn-outline-success btn-lg">Salary : {{ info.salary }}</button>
-          <hr>
-          <a href="{% url 'Apply-Leave' %}" class="salary1 btn btn-primary">Apply Leave</a>
-          <hr>
-          <a href="{% url 'Resign' %}" class="resign btn btn-danger">Resign</a>
         </div>
     </div>
   </div>
   <div class="em-l">
-      <h3> Your Leaves</h3>
+      <h3 class="l-h1"> Your Leaves</h3>
       {% if leaves %}
       <div class="card-group card1">
       {% for employee in leaves %}
@@ -50,6 +45,6 @@
     </div>
   </div>
   <div class="em-bt">
-    <a href="{% url 'Apply-Leave' %}" class="btn btn-primary bt1">Apply Leave</a>  <a href="{% url 'Resign' %}" class="btn btn-danger bt2">Resign</a>
+    <a href="{% url 'Apply-Leave' %}" class="btn signup2 btn-primary bt1">Apply Leave</a>  <a href="{% url 'Resign' %}" class="btn  goback2 btn-danger bt2">Resign</a>
   </div>
 {% endblock %}

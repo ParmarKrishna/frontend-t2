@@ -1,15 +1,5 @@
 body{
     /* background-color:#c187d3; */
-    
-    background-color:#87b7d3;
-    font-family: 'Noto Sans', sans-serif;
-}
-::-webkit-scrollbar{
-    display: none;
-}
-hr{
-    color: black;
-}
     background-image: url(marc-olivier-jodoin-0eLofogafxQ-unsplash.png);
     padding-left: 450px;
  
@@ -26,24 +16,11 @@ hr{
     background-color: #dbced1;
 }
 .login{
-    margin-left: 35%;
+    margin-left: 55%;
 }
-.login-h1{
-    margin-left: 28%;
-    margin-top: 8%;
-    margin-bottom: 5%;
-    font-weight: bolder;
-    /*color: #905e62;*/
-}
-.login p{
-    font-weight: bold;
-    margin-top: 5%;
-}
-.card{
-    background-color: #87b7d3;
-=======
-    margin-left: -4%;
-    margin-top: 12%;
+.login-h1 {
+    margin-left: 10%;
+    margin-top: 7%;
     margin-bottom: 10%;
     color: #905e62;
 }
@@ -104,7 +81,7 @@ P{
     padding-left: 2px;
 }
 a{
-    color: #00c3ff;
+    color: #ffffff;
     padding-left: 7px;
 }
 .alert-primary {
@@ -179,19 +156,13 @@ tr {
     margin-left: 0px;
     padding: 4px 13px;
 }
-.hm-bd .search{
-    width: 20px;
-}
-.em-profile{
-    margin-left:1%;
-=======
 .newEmployee{
     margin-left: 1px;
     background-color: #ff000000;
     padding-left: 13px;
 }
 .login_group{
-    margin-left: 130px;
+    margin-left: 333px;
 }
 .signup1{
     margin-left: 0px;
@@ -215,4 +186,30 @@ tr {
     color: #e3aeba;
     background-color: #301a1a8c;
     border-radius: 8px;
+}
+.search-b {
+    margin-left: 128px;
+}
+.abd-table {
+    margin-left: 113px;
+    margin-right: -109px;
+}
+.search2{
+    margin-left: 20px;
+}
+.signup2{
+    margin-left: -113px;
+    margin-right: -139px;
+    margin-top: 15px;
+}
+.goback2{
+    margin-left: 151px;
+    background-color: #ff000000;
+    margin-top: 15px;
+}
+.l-h1 {
+    margin-top: 22px;
+    margin-right: 239px;
+    background-color: #0c0202cf;
+    padding: 0 11 2 4;
 }
