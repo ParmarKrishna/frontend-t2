@@ -15,7 +15,7 @@
       </div>
       <hr>
       <hr>
-      <h3> Your Employee Leave Management</h3>
+      <h3 class="H3"> Your Employee Leave Management</h3>
       {% if elm %}
       {% for employee in elm %}
       <div class="card" style="width: 50rem;">
@@ -34,7 +34,7 @@
       </div>
       {% endif %}
       <hr>
-      <h3> Your Past Employee</h3>
+      <h3 class="H3"> Your Past Employee</h3>
       {% if pus %}
       <table class="table mb-2">
         <thead>
@@ -79,7 +79,7 @@
        No Past Employee Found For this branch.
       </div>
       {% endif %}
-      <h3> Your Employee Salary Calculations</h3>
+      <h3 class="H3"> Your Employee Salary Calculations</h3>
       {% if cal %}
       <table class="table">
         <thead>
@@ -115,7 +115,7 @@
       </div>
       {% endif %}
       <hr>
-      <h3>Products In Your Branch</h3>
+      <h3 class="H3">Products In Your Branch</h3>
       <table class="table">
         <thead>
           <tr>
@@ -136,8 +136,8 @@
         </tbody>
       {% endfor %}
     </table>
-    <h3> Your General Services</h3>
-    <div class="card-group">
+    <h3 class="H3"> Your General Services</h3>
+    <div class="card-group General">
       {% for service in gs %}
       <div class="card" style="width: 25rem;">
         <div class="card-body">

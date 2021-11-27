@@ -1,0 +1,40 @@
+{% extends './indexbase.html' %}
+{% block content %}
+<h4>Search for Branch</h4>
+<form method="POST" action="{% url 'query' %}">
+    {% csrf_token %}
+    <input class="search1" type="number" placeholder="Branch ID" name="branch_id">
+    <button class="submit1" type="submit" class="btn btn-primary" value="Search">Search</button>
+</form>
+{% if info %}
+<div class="hm-bd">
+        <h4 class="ss1">Showing Branch Details </h4>
+    <div class="card cc1">
+        <table class="table mb-3 tt1">
+            <thead>
+              <tr>
+                  <th scope="col">Branch ID</th>
+                <th scope="col">Branch Name</th>
+                <th scope="col">Branch Manager Name</th>
+                <th scope="col">Total Payout</th>
+                <th scope="col">Total Number of Employee</th>
+                <th scope="col">Branch Address</th>
+              </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>{{ info.branch_id }}</td>
+                <td>{{ info.branch_name }}</td>
+              <td>{{ info.branch.name }}</td>
+              <td>{{ info.total_payout }}</td>
+              <td>{{ info.total_number_of_employee }}</td>
+              <td>{{ info.branch_address }}</td>
+            </tr>
+        </tbody>
+            </table>
+    </div>
+  </div>
+  {% else %}
+  <p class="alert alert-danger">No Results for Given Query</p>
+{% endif %}
+{% endblock %}

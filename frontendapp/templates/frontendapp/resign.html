@@ -1,6 +1,6 @@
 {% extends './indexbase.html' %}
 {% block content %}
-  <h1>Resignation Form</h1>
+  <h1 class="add-h1">Resignation Form</h1>
         <form method="POST" action="{%url 'Resign' %}">
             {% csrf_token %}
             <div class="form-group">
@@ -15,7 +15,7 @@
                 <label for="resign_reason">Reason</label>
                 <input type="text" required class="form-control" name="resign_reason" id="leave_reason" placeholder="Leave Reason">
               </div>
-            <button type="submit" class="btn btn-danger">Resign</button>
-            <a class="btn btn-outline-success" href="base.html">Go Back</a>
+            <button type="submit" class="signup1 btn btn-danger">Resign</button>
+            <a class="btn goback btn-outline-success" href="base.html">Go Back</a>
           </form>
 {% endblock %}
